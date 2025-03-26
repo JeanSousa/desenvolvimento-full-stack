@@ -17,10 +17,12 @@ def home():
 def favicon():
     return send_from_directory('static', 'favicon.ico', mimetype='image/x-icon')
 
-
+# AQUI NO CONTROLLER TEMOS AS ROTAS E REGRAS DE NEGÓCIO
+# DEFININDO UMA ROTA DO TIPO POST 
 @app.route('/add_produto', methods=['POST'])
 def add_produto():
     session = Session()
+    # AS INFORMAÇÕES SÃO OBTIDAS VIA FORM
     produto = Produto(
         nome=request.form.get("nome"),
         quantidade=request.form.get("quantidade"),
@@ -40,7 +42,7 @@ def add_produto():
         print(str(e))
         return render_template("error.html", error_code=400, error_msg=error_msg), 400
 
-
+# <produto_id> É UM ROUTE PARAM 
 @app.route('/get_produto/<produto_id>', methods=['GET'])
 def get_produto(produto_id):
     session = Session()
