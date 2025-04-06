@@ -1,3 +1,4 @@
+# Pydantic podemos definir schemas, estrutura do corpo de uma resposta ou requisição
 from pydantic import BaseModel
 from typing import Optional, List
 from model.produto import Produto
@@ -8,8 +9,8 @@ from schemas import ComentarioSchema
 class ProdutoSchema(BaseModel):
     """ Define como um novo produto a ser inserido deve ser representado
     """
-    nome: str = "Banana Prata"
-    quantidade: Optional[int] = 12
+    nome: str = "Banana Prata" # valor default
+    quantidade: Optional[int] = 12 # o valor é opcional
     valor: float = 12.50
 
 

@@ -78,7 +78,7 @@ def get_produtos():
         # se não há produtos cadastrados
         return {"produtos": []}, 200
     else:
-        logger.debug(f"%d rodutos econtrados" % len(produtos))
+        logger.warning(f"%d rodutos econtrados" % len(produtos))
         # retorna a representação de produto
         print(produtos)
         return apresenta_produtos(produtos), 200
